@@ -5,25 +5,36 @@
 kafka-topics --create --topic (topic_name) --bootstrap-server localhost:9092
 e.g: kafka-topics --create --topic product --bootstrap-server localhost:9092
 
-List Kafka topics:
+- List Kafka topics:
 
 kafka-topics --list --bootstrap-server localhost:9092
 
-Get Topic details, partition counts etc.
+- Get Topic details, partition counts etc.
+
 kafka-topics --describe --bootstrap-server localhost:9092 --topic (topic_name)
 e.g: kafka-topics --describe --bootstrap-server localhost:9092 --topic product
 
-Alter the topic, change partition:
+- Alter the topic, change partition:
 kafka-topics --alter --bootstrap-server localhost:9092 --topic (topic_name) --partitions 6
 e.g: kafka-topics --alter --bootstrap-server localhost:9092 --topic product --partitions 6
 
-Publish a message to Kafka topic
+- Publish a message to Kafka topic
 
 kafka-console-producer --bootstrap-server localhost:9092 --topic pricing
 
-Check messages in a topic
+- Check messages in a topic
 kafka-console-consumer --bootstrap-server localhost:9092 --topic (topic_name) --from-beginning
 e.g kafka-console-consumer --bootstrap-server localhost:9092 --topic product --from-beginning
+
+
+- Manully create a topic for order service
+
+kafka-topics \
+  --create \
+  --topic order \
+  --bootstrap-server localhost:9092 \
+  --partitions 6 \
+  --replication-factor 1
 
 <
 
